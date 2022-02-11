@@ -15,7 +15,7 @@ import {
 
 export const Home = ({ contract, signer, remainTokenCount }) => {
   const [amount, setAmount] = useState(ETH_VAL);
-  const [count, setCount] = useState(3);
+  const [count, setCount] = useState(1);
   const [minting, setMinting] = useState(false);
   const [cnt, setCnt] = useState(1);
   const [currentAccount, setCurrentAccount] = useState(null);
