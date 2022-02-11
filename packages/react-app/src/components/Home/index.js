@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { parseEther } from "@ethersproject/units";
 import { ETH_VAL } from "../../constants";
+import { Account } from "../../components";
 
 import {
   Container,
@@ -13,7 +14,17 @@ import {
   PointWrapper,
 } from "./styles"; //k-k
 
-export const Home = ({ contract, signer, remainTokenCount }) => {
+export const Home = ({ address,
+  userSigner,
+  localProvider,
+  mainnetProvider,
+  price,
+  minimized,
+  web3Modal,
+  loadWeb3Modal,
+  logoutOfWeb3Modal,
+  blockExplorer,
+  contract, signer, remainTokenCount }) => {
   const [amount, setAmount] = useState(ETH_VAL);
   const [minting, setMinting] = useState(false);
   const [cnt, setCnt] = useState(1);
@@ -85,13 +96,26 @@ export const Home = ({ contract, signer, remainTokenCount }) => {
               <PointWrapper active={cnt > 1} onClick={() => setCnt(2)} />
             </ProgressBarContainer>
           </NFTContainer>
-          {/* <ButtonWrapper>
-            {currentAccount ? mintNftButton() : connectWalletButton()}
-          </ButtonWrapper> */}
+          <ButtonWrapper>
+            <Account
+                address={address}
+                localProvider={localProvider}
+                userSigner={userSigner}
+                mainnetProvider={mainnetProvider}
+                price={price}
+                web3Modal={web3Modal}
+                loadWeb3Modal={loadWeb3Modal}
+                logoutOfWeb3Modal={logoutOfWeb3Modal}
+                blockExplorer={blockExplorer}
+                contract={contract}
+                signer={userSigner}
+                remainTokenCount={remainTokenCount}
+              />
+          </ButtonWrapper>
         </TextWrapper>
-        {/* <ImgWrapper>
+        <ImgWrapper>
           <img src="/home-hero.png" alt="" />
-        </ImgWrapper> */}
+        </ImgWrapper>
       </InnerContainer>
     </Container>
   );

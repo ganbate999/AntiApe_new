@@ -78,7 +78,7 @@ export default function Account({
       modalButtons.push(
         <Button
           key="logoutbutton"
-          style={{ verticalAlign: "top", border: "none" }}
+          style={{ verticalAlign: "top" }}
           onClick={mintNftHandler}
           className="connect_status light"
         >
@@ -89,7 +89,7 @@ export default function Account({
       modalButtons.push(
         <Button
           key="loginbutton"
-          style={{ verticalAlign: "top", border: "none" }}
+          style={{ verticalAlign: "top" }}
           /* type={minimized ? "default" : "primary"}     too many people just defaulting to MM and having a bad time */
           onClick={loadWeb3Modal}
           className="connect_status dark"
