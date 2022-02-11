@@ -7,6 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   padding: 30px 20px;
   color: white;
+  min-height: 100vh;
 
   @media (min-width: 768px) {
     padding: 20px;
