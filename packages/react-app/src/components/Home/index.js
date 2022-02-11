@@ -15,7 +15,6 @@ import {
 
 export const Home = ({ contract, signer, remainTokenCount }) => {
   const [amount, setAmount] = useState(ETH_VAL);
-  const [count, setCount] = useState(1);
   const [minting, setMinting] = useState(false);
   const [cnt, setCnt] = useState(1);
   const [currentAccount, setCurrentAccount] = useState(null);
@@ -25,8 +24,8 @@ export const Home = ({ contract, signer, remainTokenCount }) => {
     try {
       const mintFunction = contract.connect(signer)["mint"];
       console.log(mintFunction)
-      const hash = await mintFunction(count, {
-        value: parseEther((amount * count).toString()),
+      const hash = await mintFunction(cnt, {
+        value: parseEther((amount * cnt).toString()),
       });
       await hash.wait();
       setMinting(false);
