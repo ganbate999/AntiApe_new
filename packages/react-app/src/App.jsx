@@ -11,6 +11,7 @@ import { HelmetTags } from './components/HelmetTags';  //k-k
 import { Home } from './components/Home';                    //k-k
 import { INFURA_ID, NETWORK, NETWORKS } from "./constants";
 import { Transactor } from "./helpers";
+import { Account } from "./components";
 import {
   useBalance,
   useContractLoader,
@@ -475,6 +476,21 @@ function App(props) {
                 contract={readContracts["AntiApe"]}
                 signer={userSigner}
                 remainTokenCount={remainTokenCount} />
+              <Account
+                address={address}
+                localProvider={localProvider}
+                userSigner={userSigner}
+                mainnetProvider={mainnetProvider}
+                price={price}
+                web3Modal={web3Modal}
+                loadWeb3Modal={loadWeb3Modal}
+                logoutOfWeb3Modal={logoutOfWeb3Modal}
+                blockExplorer={blockExplorer}
+                contract={readContracts["AntiApe"]}
+                signer={userSigner}
+                remainTokenCount={remainTokenCount}
+              />
+              <img src="/home-hero.png" alt="" className="hero" />
             </Route>
           </Switch>
         </div>

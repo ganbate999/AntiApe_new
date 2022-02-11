@@ -85,13 +85,13 @@ export const Home = ({ contract, signer, remainTokenCount }) => {
               <PointWrapper active={cnt > 1} onClick={() => setCnt(2)} />
             </ProgressBarContainer>
           </NFTContainer>
-          <ButtonWrapper>
+          {/* <ButtonWrapper>
             {currentAccount ? mintNftButton() : connectWalletButton()}
-          </ButtonWrapper>
+          </ButtonWrapper> */}
         </TextWrapper>
-        <ImgWrapper>
+        {/* <ImgWrapper>
           <img src="/home-hero.png" alt="" />
-        </ImgWrapper>
+        </ImgWrapper> */}
       </InnerContainer>
     </Container>
   );
