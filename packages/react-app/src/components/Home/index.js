@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { parseEther } from "@ethersproject/units";
 import { ETH_VAL } from "../../constants";
 import { Account } from "../../components";
+import { Canvas } from "@react-three/fiber";
+import { useLoader } from "@react-three/fiber";
+
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { Suspense } from "react";
+
 
 import {
   Container,
@@ -13,7 +19,14 @@ import {
   ImgWrapper,
   PointWrapper,
 } from "./styles"; //k-k
-
+const Model = () => {
+  const gltf = useLoader(GLTFLoader, "./adamHead/adamHead.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1.2} />
+    </>
+  );
+};
 export const Home = ({ address,
   userSigner,
   localProvider,
@@ -114,7 +127,12 @@ export const Home = ({ address,
           </ButtonWrapper>
         </TextWrapper>
         <ImgWrapper>
-          <img src="/home-hero.png" alt="" />
+        <Canvas>
+        <Suspense fallback={null}>
+          <Model />
+          
+        </Suspense>
+      </Canvas>
         </ImgWrapper>
       </InnerContainer>
     </Container>
